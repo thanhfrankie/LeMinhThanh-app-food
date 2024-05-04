@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 // mã hóa data
 const createToken = (data) => {
   // tạo ra token
-  let token = jwt.sign({ data }, "VULEBAOLONG", {
+  let token = jwt.sign({ data }, "restaurant", {
     algorithm: "HS256",
     expiresIn: "90d",
   }); // HS256, ES256
@@ -16,7 +16,7 @@ const createToken = (data) => {
 const checkToken = (token) => {
   try {
     // Thử giải mã token sử dụng khóa bí mật (secret key)
-    const decodedToken = jwt.verify(token, "VULEBAOLONG");
+    const decodedToken = jwt.verify(token, "restaurant");
 
     // Nếu giải mã thành công, token hợp lệ
     return true;
